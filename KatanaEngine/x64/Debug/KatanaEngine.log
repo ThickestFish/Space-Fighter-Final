@@ -1,0 +1,31 @@
+﻿  KatanaEngine.cpp
+           ██╗  ██╗  █████╗  ████████╗  █████╗  ███╗   ██╗  █████╗
+           ██║ ██╔╝ ██╔══██╗ ╚══██╔══╝ ██╔══██╗ ████╗  ██║ ██╔══██╗
+           █████╔╝  ███████║    ██║    ███████║ ██╔██╗ ██║ ███████║
+           ██╔═██╗  ██╔══██║    ██║    ██╔══██║ ██║╚██╗██║ ██╔══██║
+           ██║  ██╗ ██║  ██║    ██║    ██║  ██║ ██║ ╚████║ ██║  ██║
+           ╚═╝  ╚═╝ ╚═╝  ╚═╝/\  ╚═╝    ╚═╝  ╚═╝ ╚═╝  ╚═══╝ ╚═╝  ╚═╝
+         /vvvvvvvvvvvvvvvvvvv \=======================================,
+         `^^^^^^^^^^^^^^^^^^^ /-------------------------------------"
+              Katana Engine \/ © 2012 - Shuriken Studios LLC
+                      http://www.shurikenstudios.com
+  Animation.cpp
+  AudioSample.cpp
+  Color.cpp
+  Font.cpp
+  Game.cpp
+  GameTime.cpp
+  InputState.cpp
+  MathUtil.cpp
+  MenuItem.cpp
+  MenuScreen.cpp
+  Point.cpp
+  RenderTarget.cpp
+  Resource.cpp
+  Screen.cpp
+  ScreenManager.cpp
+  SpriteBatch.cpp
+  Texture.cpp
+  Vector2.cpp
+  Generating Code...
+  KatanaEngine.vcxproj -> C:\Users\Biosm\Downloads\space-fighter-analysis-master\x64\Debug\KatanaEngine.lib
