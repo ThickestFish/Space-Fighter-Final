@@ -26,7 +26,7 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 	const int COUNT = 3;
 	MenuItem *pItem;
 	Font::SetLoadSize(20, true);
-	Font *pFont = resourceManager.Load<Font>("Fonts\\arial.ttf");
+	Font *pFont = resourceManager.Load<Font>("Fonts\\Ethnocentric.ttf"); // Changed Font [CHRISTIAN]
 
 	SetDisplayCount(COUNT);
 
@@ -69,7 +69,7 @@ void MainMenuScreen::Update(const GameTime& gameTime)
 	{
 		pItem->SetAlpha(alpha);
 		isSelected = pItem->IsSelected();
-		pItem->SetColor(isSelected ? Color::WHITE : Color::BLUE);
+		pItem->SetColor(isSelected ? Color::CYAN : Color::GRAY);   // Changed Colors  [CHRISTIAN]
 		pItem->SetTextOffset(isSelected ? Vector2::UNIT_X * offset : Vector2::ZERO);
 	}
 

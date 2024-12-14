@@ -41,6 +41,42 @@ void PlayerShip::HandleInput(const InputState& input)
 
 		TriggerType type = TriggerType::None;
 		if (input.IsKeyDown(Key::SPACE)) type |= TriggerType::Primary;
+
+		
+		
+		//Boost while holding LSHIFT, Deincrement Stamina while boosting, set Timeout if Stamina reaches ZERO - Christian
+		if (PlayerShip::GetBoostTimeout() == 0) 
+		{
+			if (input.IsKeyDown(Key::LSHIFT)) //Needed to detect if player is holding the boost button
+			{
+				if (PlayerShip::GetBoostStamina() > 0) //If the PlayerShip has Stamina, modify direction.X and direction.Y by the following
+				{
+					direction.X *= 3;
+					direction.Y *= 2;
+					std::cout << GetBoostStamina() << ": " << GetBoostTimeout() << "\n"; //Print Stamina and Timeout to Console while holding LSHIFT (DEBUG)
+					SetBoostStamina(GetBoostStamina() - 1);
+				}
+				else if (PlayerShip::GetBoostStamina() == 0) //If the PlayerShip has no Stamina, SetBoostTimeout = 160. Increments every game frame 
+				{
+					SetBoostTimeout(160);
+					std::cout << GetBoostStamina() << ": " << GetBoostTimeout() << "\n";
+				}
+			}
+		}
+	
+
+		//Boost Timeout - Christian
+
+		if (!input.IsKeyDown(Key::LSHIFT)) 
+		{
+			if (GetBoostTimeout() > 0) { SetBoostTimeout(GetBoostTimeout() - 1); } //If Timeout is greater than zero, decrease it while not holding LSHIFT
+			if (GetBoostStamina() < 160) { SetBoostStamina(GetBoostStamina() + 1); }    //Refill Stamina while not holding Shift 
+			std::cout << GetBoostStamina() << ": " << GetBoostTimeout() << "\n"; //Print Stamina and Timeout to Console while not holding LSHIFT (DEBUG)
+
+		}
+
+
+
 		//if (input.IsKeyDown(Key::D)) type |= TriggerType::Secondary;
 		//if (input.IsKeyDown(Key::S)) type |= TriggerType::Special;
 
@@ -130,3 +166,18 @@ void PlayerShip::SetResponsiveness(const float responsiveness)
 {
 	m_responsiveness = Math::Clamp(0, 1, responsiveness);
 }
+
+
+/* START NEW CODE FROM CHRISTIAN*/
+
+void PlayerShip::SetBoostTimeout(const float boostTimeout)
+{
+	m_boostTimeout = boostTimeout;
+}
+
+void PlayerShip::SetBoostStamina(const float boostStamina)
+{
+	m_boostStamina = boostStamina;
+}
+
+/* END NEW CODE FROM CHRISTIAN */

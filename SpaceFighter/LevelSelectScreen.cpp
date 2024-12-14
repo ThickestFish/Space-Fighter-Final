@@ -11,7 +11,7 @@ void LevelSelectScreen::LoadContent(ResourceManager& resourceManager)
     const int COUNT = 3; //menu count is set to 2 here since we only have 2 menu items [Alexander]
     MenuItem* pItem;
     Font::SetLoadSize(20, true);
-    Font* pFont = resourceManager.Load<Font>("Fonts\\arial.ttf");
+    Font* pFont = resourceManager.Load<Font>("Fonts\\Ethnocentric.ttf"); // Changed Font [CHRISTIAN]
 
     SetDisplayCount(COUNT);
 
@@ -53,8 +53,8 @@ void LevelSelectScreen::Update(const GameTime& gameTime)
 	for (MenuItem* pItem : GetMenuItems())
 	{
 		pItem->SetAlpha(alpha);
-		isSelected = pItem->IsSelected();
-		pItem->SetColor(isSelected ? Color::WHITE : Color::BLUE);
+		isSelected = pItem->IsSelected(); 
+		pItem->SetColor(isSelected ? Color::CYAN : Color::GRAY); //   Changed color [CHRISTIAN]
 		pItem->SetTextOffset(isSelected ? Vector2::UNIT_X * offset : Vector2::ZERO);
 	}
 

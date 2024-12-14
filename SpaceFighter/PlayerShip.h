@@ -56,6 +56,22 @@ public:
 	virtual void ConfineToScreen(const bool isConfined = true) { m_isConfinedToScreen = isConfined; }
 
 
+	/* START NEW CODE FROM CHRISTIAN */
+
+	/* Sets the Stamina level for the PlayerShip's boost    [Christian]*/
+	virtual void SetBoostStamina(const float boostStamina);
+
+	/* Gets the Stamina level for the PlayerShip's boost    [Christian]*/
+	virtual float GetBoostStamina() const { return m_boostStamina; }
+
+	/* Sets the Boost Timeout penalty for the PlayerShip's boost    [Christian]*/
+	virtual void SetBoostTimeout(const float boostTimeout);
+
+	/* Gets the Boost Timeout penalty for the PlayerShip's boost    [Christian]*/
+	float GetBoostTimeout() const { return m_boostTimeout; }
+
+	/* END NEW CODE FROM CHRISTIAN */
+
 protected:
 
 	/** @brief Sets the responsiveness of the player ship.
@@ -71,6 +87,7 @@ protected:
 	virtual Vector2 GetDesiredDirection() const { return m_desiredDirection; }
 
 
+
 private:
 
 	Vector2 m_desiredDirection;
@@ -82,4 +99,12 @@ private:
 
 	Texture* m_pTexture = nullptr;
 
+
+	/* START NEW CODE FROM CHRISTIAN */
+
+	//Default values for new variables defined for new PlayerShip ability
+	float m_boostStamina = 160;
+	float m_boostTimeout = 0;
+
+	/* END NEW CODE FROM CHRISTIAN */
 };
