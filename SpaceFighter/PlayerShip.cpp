@@ -42,10 +42,10 @@ void PlayerShip::HandleInput(const InputState& input)
 		TriggerType type = TriggerType::None;
 		if (input.IsKeyDown(Key::SPACE)) type |= TriggerType::Primary;
 
-		
+			/* START NEW CODE FROM CHRISTIAN*/
 		
 		//Boost while holding LSHIFT, Deincrement Stamina while boosting, set Timeout if Stamina reaches ZERO - Christian
-		if (PlayerShip::GetBoostTimeout() == 0) 
+		if (PlayerShip::GetBoostTimeout() == 0) // Check if Boost is not timed out. If it's greater than zero, go to Else statement.
 		{
 			if (input.IsKeyDown(Key::LSHIFT)) //Needed to detect if player is holding the boost button
 			{
@@ -56,18 +56,18 @@ void PlayerShip::HandleInput(const InputState& input)
 					std::cout << GetBoostStamina() << ": " << GetBoostTimeout() << "\n"; //Print Stamina and Timeout to Console while holding LSHIFT (DEBUG)
 					SetBoostStamina(GetBoostStamina() - 1);
 				}
-				else if (PlayerShip::GetBoostStamina() == 0) //If the PlayerShip has no Stamina, SetBoostTimeout = 160. Increments every game frame 
+				else if (PlayerShip::GetBoostStamina() == 0) //If the PlayerShip has no Stamina, SetBoostTimeout = 160.  
 				{
 					SetBoostTimeout(160);
 					std::cout << GetBoostStamina() << ": " << GetBoostTimeout() << "\n";
 				}
 			}
 		}
-	
+			/* END NEW CODE FROM CHRISTIAN */
 
 		//Boost Timeout - Christian
 
-		if (!input.IsKeyDown(Key::LSHIFT)) 
+		if (!input.IsKeyDown(Key::LSHIFT)) //Checks if player is NOT holding down LSHIFT (not trying to boost)
 		{
 			if (GetBoostTimeout() > 0) { SetBoostTimeout(GetBoostTimeout() - 1); } //If Timeout is greater than zero, decrease it while not holding LSHIFT
 			if (GetBoostStamina() < 160) { SetBoostStamina(GetBoostStamina() + 1); }    //Refill Stamina while not holding Shift 
@@ -168,7 +168,7 @@ void PlayerShip::SetResponsiveness(const float responsiveness)
 }
 
 
-/* START NEW CODE FROM CHRISTIAN*/
+			/* START NEW CODE FROM CHRISTIAN*/
 
 void PlayerShip::SetBoostTimeout(const float boostTimeout)
 {
@@ -180,4 +180,4 @@ void PlayerShip::SetBoostStamina(const float boostStamina)
 	m_boostStamina = boostStamina;
 }
 
-/* END NEW CODE FROM CHRISTIAN */
+			/* END NEW CODE FROM CHRISTIAN */

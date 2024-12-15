@@ -56,7 +56,7 @@ public:
 	virtual void ConfineToScreen(const bool isConfined = true) { m_isConfinedToScreen = isConfined; }
 
 
-	/* START NEW CODE FROM CHRISTIAN */
+			/* START NEW CODE FROM CHRISTIAN */
 
 	/* Sets the Stamina level for the PlayerShip's boost    [Christian]*/
 	virtual void SetBoostStamina(const float boostStamina);
@@ -70,7 +70,8 @@ public:
 	/* Gets the Boost Timeout penalty for the PlayerShip's boost    [Christian]*/
 	float GetBoostTimeout() const { return m_boostTimeout; }
 
-	/* END NEW CODE FROM CHRISTIAN */
+			/* END NEW CODE FROM CHRISTIAN */
+
 
 protected:
 
@@ -100,11 +101,11 @@ private:
 	Texture* m_pTexture = nullptr;
 
 
-	/* START NEW CODE FROM CHRISTIAN */
+			/* START NEW CODE FROM CHRISTIAN */
 
 	//Default values for new variables defined for new PlayerShip ability
 	float m_boostStamina = 160;
 	float m_boostTimeout = 0;
 
-	/* END NEW CODE FROM CHRISTIAN */
+			/* END NEW CODE FROM CHRISTIAN */
 };
